@@ -5,3 +5,6 @@ setup:
 
 run:
 	uvicorn fastapi_makesimpleapi.main:app --reload
+
+utest:
+	pytest -v tests
