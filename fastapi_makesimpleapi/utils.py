@@ -31,13 +31,13 @@ def make_simple_api(
     router: APIRouter,
     http_method: str,
     url: str,
-    klass: object,
+    service_klass: object,
     method_name: str,
 ) -> None:
     """Make just-call-service api from service method."""
     SERVICE_ARGUMENT_NAME = "service"
 
-    method = getattr(klass, method_name)
+    method = getattr(service_klass, method_name)
 
     params = get_typed_params(method)
     params.append(
@@ -45,7 +45,7 @@ def make_simple_api(
             name=SERVICE_ARGUMENT_NAME,
             kind=inspect.Parameter.POSITIONAL_OR_KEYWORD,
             default=Depends(),
-            annotation=klass,
+            annotation=service_klass,
         ),
     )
     params = inspect.Signature(params)

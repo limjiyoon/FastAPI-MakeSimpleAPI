@@ -11,6 +11,6 @@ make_simple_api(
     router=router,
     http_method="get",
     url="/get_name",
-    klass=SimpleService,
+    service_klass=SimpleService,
     method_name="get_name",
 )
