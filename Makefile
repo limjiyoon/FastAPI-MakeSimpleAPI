@@ -4,4 +4,4 @@ setup:
 	pdm install
 
 run:
-	uvicorn fastapi-makesimpleapi.main:app --reload
+	uvicorn fastapi_makesimpleapi.main:app --reload
